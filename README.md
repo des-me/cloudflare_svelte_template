@@ -1,0 +1,4 @@
+- Cloudflare
+- Sveltekit
+- Github workflows
+- Tailwindcss
