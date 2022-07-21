@@ -1,0 +1,14 @@
+schema: src/lib/graphql/schema.graphql
+documents: src/lib/graphql/documents/**/*.graphql
+generates:
+  src/lib/graphql/generated/resolver-types.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+  src/lib/graphql/generated/operations.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - svelte-apollo
+    config:
+      clientPath: '$lib/graphql/client'

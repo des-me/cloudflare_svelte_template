@@ -1,2 +1,13 @@
+<script lang="ts">
+import { browser } from "$app/env";
+
+import { Hello } from "$lib/graphql/generated/operations";
+    $: hello = browser ? Hello({}) : undefined
+</script>
+
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<pre>loading: {JSON.stringify($hello?.loading)}</pre>
+<pre>data: {JSON.stringify($hello?.data)}</pre>
+<pre>error: {JSON.stringify($hello?.error)}</pre>
+<pre>errors: {JSON.stringify($hello?.errors)}</pre>

@@ -7,7 +7,7 @@ on:
 env:
   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
   CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-  PUBLIC_HOSTNAME: ${{ secrets.PUBLIC_HOSTNAME }}
+  VITE_PUBLIC_HOSTNAME: ${{ secrets.PUBLIC_HOSTNAME }}
   WORKER_NAME: ${{ github.event.repository.name }}
 
 jobs:
