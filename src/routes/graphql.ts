@@ -1,22 +1,21 @@
-import resolvers from '$lib/graphql/resolvers';
-import { createServer } from '@graphql-yoga/common';
-import typeDefs from '$lib/graphql/schema.graphql';
+import helixFlare from 'helix-flare';
 import type { RequestEvent } from '@sveltejs/kit';
+import executableSchema from '$lib/graphql/executable-schema';
+import type { ResolverContext } from '$lib/graphql/resolvers';
 
-const yogaApp = createServer<RequestEvent>({
-	schema: {
-		typeDefs,
-		resolvers: resolvers
-	},
-	graphiql: {
-		endpoint: '/graphql'
-	}
-});
-
-export async function GET(event: RequestEvent) {
-	return yogaApp.handleRequest(event.request, event);
+async function handler(event: RequestEvent) {
+	return await helixFlare<ResolverContext>(
+		event.request,
+		executableSchema,
+		{
+			contextFactory: () => {
+				return { 
+					event
+				};
+			}
+		}
+	);
 }
 
-export async function POST(event: RequestEvent) {
-	return yogaApp.handleRequest(event.request, event);
-}
+export const GET = handler;
+export const POST = handler;

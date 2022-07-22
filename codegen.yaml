@@ -9,6 +9,7 @@ generates:
     plugins:
       - typescript
       - typescript-operations
-      - svelte-apollo
-    config:
-      clientPath: '$lib/graphql/client'
+      - typescript-generic-sdk
+    hooks:
+      afterAllFileWrite:
+        - node codegen-helpers/replace.js

@@ -5,3 +5,8 @@ build.command = "npm run build"
 
 compatibility_date = "2021-11-12"
 workers_dev = true
+
+[[kv_namespaces]]
+    binding = "TODOLIST"
+    id = "b3f2737ca5d3451596d1f67820872fa3"
+    preview_id = "b3f2737ca5d3451596d1f67820872fa3"

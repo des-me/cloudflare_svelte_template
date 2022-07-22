@@ -2,3 +2,4 @@
 - Sveltekit
 - Github workflows
 - Tailwindcss
+- Graphql Codegen
